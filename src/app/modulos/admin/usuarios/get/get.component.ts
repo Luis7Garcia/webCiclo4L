@@ -11,5 +11,4 @@ export class GetComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
