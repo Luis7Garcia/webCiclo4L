@@ -1,5 +1,5 @@
 export class UsuarioModel{
-    id?: String;
+    id?: String = "";
     nombre?: String;
     apellidos?: String;
     telefono?: String;

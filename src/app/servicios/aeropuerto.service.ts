@@ -22,9 +22,9 @@ export class AeropuertoService {
         nombre: aeropuerto.nombre,
         ciudad: aeropuerto.ciudad,
         pais: aeropuerto.pais,
-        coord_x: aeropuerto.coordenada_x,
-        coord_y: aeropuerto.coordenada_y,
-        siglas: aeropuerto.sigla,
+        coord_x: aeropuerto.coord_x,
+        coord_y: aeropuerto.coord_y,
+        siglas: aeropuerto.siglas,
         tipo: aeropuerto.tipo
       });
     }
@@ -39,13 +39,13 @@ export class AeropuertoService {
     }
 
     update(aeropuerto: AeropuertoModelo): Observable<AeropuertoModelo> {
-      return this.http.patch<AeropuertoModelo>(`${this.url}/aeropuerto/${aeropuerto.id}`, {
+      return this.http.patch<AeropuertoModelo>(`${this.url}/aeropuertos/${aeropuerto.id}`, {
         nombre: aeropuerto.nombre,
         ciudad: aeropuerto.ciudad,
         pais: aeropuerto.pais,
-        coord_x: aeropuerto.coordenada_x,
-        coord_y: aeropuerto.coordenada_y,
-        siglas: aeropuerto.sigla,
+        coord_x: aeropuerto.coord_x,
+        coord_y: aeropuerto.coord_y,
+        siglas: aeropuerto.siglas,
         tipo: aeropuerto.tipo
       }, {
         // Le paso el token a la solicitud
@@ -56,7 +56,7 @@ export class AeropuertoService {
     }
 
     delete(id: string): Observable<AeropuertoModelo[]>{
-      return this.http.delete<AeropuertoModelo[]>(`${this.url}/aeropuerto/${id}`, {
+      return this.http.delete<AeropuertoModelo[]>(`${this.url}/aeropuertos/${id}`, {
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -64,7 +64,7 @@ export class AeropuertoService {
     }
 
     getWithId(id: string): Observable<AeropuertoModelo>{
-      return this.http.get<AeropuertoModelo>(`${this.url}/aeropuerto/${id}`,{
+      return this.http.get<AeropuertoModelo>(`${this.url}/aeropuertos/${id}`,{
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -72,7 +72,7 @@ export class AeropuertoService {
     }   
 
     getCount(): Observable<AeropuertoModelo[]>{
-      return this.http.get<AeropuertoModelo[]>(`${this.url}/aeropuerto/count`, {
+      return this.http.get<AeropuertoModelo[]>(`${this.url}/aeropuertos/count`, {
         // Le paso el token a la solicitud
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`

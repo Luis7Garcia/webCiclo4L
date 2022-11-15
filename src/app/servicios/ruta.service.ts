@@ -21,7 +21,7 @@ export class RutaService {
       return this.http.post<RutaModelo>(`${this.url}/rutas`, {
         origen: ruta.origen,
         destino: ruta.destino,
-        tiempo_estimado: ruta.destino
+        tiempo_Estimado: ruta.tiempo_Estimado
       });
     }
 
@@ -35,10 +35,10 @@ export class RutaService {
     }
 
     update(ruta: RutaModelo): Observable<RutaModelo> {
-      return this.http.patch<RutaModelo>(`${this.url}/ruta/${ruta.id}`, {
+      return this.http.patch<RutaModelo>(`${this.url}/rutas/${ruta.id}`, {
         origen: ruta.origen,
         destino: ruta.destino,
-        tiempo_estimado: ruta.destino
+        tiempo_Estimado: ruta.tiempo_Estimado
       }, {
         // Le paso el token a la solicitud
         headers: new HttpHeaders({
@@ -48,7 +48,7 @@ export class RutaService {
     }
 
     delete(id: string): Observable<RutaModelo[]>{
-      return this.http.delete<RutaModelo[]>(`${this.url}/ruta/${id}`, {
+      return this.http.delete<RutaModelo[]>(`${this.url}/rutas/${id}`, {
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -56,7 +56,7 @@ export class RutaService {
     }
 
     getWithId(id: string): Observable<RutaModelo>{
-      return this.http.get<RutaModelo>(`${this.url}/ruta/${id}`,{
+      return this.http.get<RutaModelo>(`${this.url}/rutas/${id}`,{
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -64,7 +64,7 @@ export class RutaService {
     }   
 
     getCount(): Observable<RutaModelo[]>{
-      return this.http.get<RutaModelo[]>(`${this.url}/ruta/count`, {
+      return this.http.get<RutaModelo[]>(`${this.url}/rutas/count`, {
         // Le paso el token a la solicitud
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
