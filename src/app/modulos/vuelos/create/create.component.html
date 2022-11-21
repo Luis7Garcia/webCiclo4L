@@ -1,21 +1,23 @@
+<img src="../../../../assets/portadaMenus.jpg" alt="portada avion">
+
 <div class="container">
     <h3 class="center-align">Registrar Vuelo</h3>
     <form [formGroup]="fgValidacion" class="col s12" (ngSubmit)="store()">
       <div class="row">
         <div class="input-field col s6">
-          <input formControlName="fecha_inicio" type="text" class="validate" />
+          <input formControlName="fecha_inicio" type="date" class="validate" />
           <label for="fecha_inicio">Fecha Inicio</label>
         </div>
         <div class="input-field col s6">
-          <input formControlName="hora_inicio" type="text" class="validate" />
+          <input formControlName="hora_inicio" type="time" class="validate" />
           <label for="hora_inicio">Hora Inicio</label>
         </div>
         <div class="input-field col s6">
-          <input formControlName="fecha_fin" type="text" class="validate" />
+          <input formControlName="fecha_fin" type="date" class="validate" />
           <label for="fecha_fin">Fecha Fin</label>
         </div>
         <div class="input-field col s6">
-            <input formControlName="hora_fin" type="text" class="validate" />
+            <input formControlName="hora_fin" type="time" class="validate" />
             <label for="hora_fin">Hora Fin</label>
           </div>
           <div class="input-field col s6">
@@ -23,8 +25,10 @@
             <label for="asientos_vendidos">Asientos Vendidos</label>
           </div>
           <div class="input-field col s6">
-            <input formControlName="ruta" type="text" class="validate" />
-            <label for="ruta">ruta</label>
+            <select class="browser-default" formControlName="ruta" >
+              <option value="" disabled selected>Seleccione la ruta</option>
+              <option *ngFor="let ruta of listadoRutas" value="{{ruta.origen - ruta.destino}">{{ruta.origen}}-{{ ruta.destino}}</option>
+            </select>
           </div>
           <div class="input-field col s12">
             <input formControlName="nombre_piloto" type="text" class="validate" />

@@ -1,14 +1,20 @@
+<img src="../../../../assets/portadaMenus.jpg" alt="portada avion">
+
 <div class="container">
     <h3 class="center-align">Registrar Ruta</h3>
     <form [formGroup]="fgValidacion" class="col s12" (ngSubmit)="store()">
       <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="origen" type="text" class="validate" />
-          <label for="origen">Origen</label>
+        <div class="input-field col s6">
+          <select class="browser-default" formControlName="origen" >
+            <option value="" disabled selected>Seleccione el aeropuerto origen</option>
+            <option *ngFor="let aeropuerto of listadoAeropuertos" value="{{aeropuerto.nombre}}">{{aeropuerto.nombre}}</option>
+          </select>
         </div>
         <div class="input-field col s6">
-          <input formControlName="destino" type="text" class="validate" />
-          <label for="destino">Destino</label>
+          <select class="browser-default" formControlName="destino" >
+            <option value="" disabled selected>Seleccione el aeropuerto destino</option>
+            <option *ngFor="let aeropuerto of listadoAeropuertos" value="{{aeropuerto.nombre}}">{{aeropuerto.nombre}}</option>
+          </select>
         </div>
         <div class="input-field col s6">
           <input formControlName="tiempo_Estimado" type="text" class="validate" />

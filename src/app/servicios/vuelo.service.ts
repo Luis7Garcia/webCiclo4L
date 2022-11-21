@@ -26,8 +26,13 @@ export class VueloService {
         asientos_vendidos: vuelo.asientos_vendidos, 
         nombre_piloto: vuelo.nombre_piloto, 
         ruta: vuelo.ruta 
-      });
-    }
+      },{
+        // Le paso el token a la solicitud
+        headers: new HttpHeaders({
+          "Authorization": `Bearer ${this.token}`
+        })
+    });
+  }
 
     getAll(): Observable<VueloModelo[]>{
       return this.http.get<VueloModelo[]>(`${this.url}/vuelos`, {

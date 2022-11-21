@@ -10,6 +10,11 @@ export class IndexComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+
+  
+ 
+  
 
 }

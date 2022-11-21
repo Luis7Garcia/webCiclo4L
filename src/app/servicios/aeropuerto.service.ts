@@ -26,9 +26,14 @@ export class AeropuertoService {
         coord_y: aeropuerto.coord_y,
         siglas: aeropuerto.siglas,
         tipo: aeropuerto.tipo
-      });
-    }
-
+      },{
+      // Le paso el token a la solicitud
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+      
+    });
+  }
     getAll(): Observable<AeropuertoModelo[]>{
       return this.http.get<AeropuertoModelo[]>(`${this.url}/aeropuertos`, {
         // Le paso el token a la solicitud
